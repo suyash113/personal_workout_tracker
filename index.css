@@ -1,0 +1,87 @@
+body {
+    text-align: center;
+    margin: 0 auto;
+    background-color: #162030;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+}
+#dumbell {
+    width: 50px;
+    height: 30px;
+    margin-top: 24px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+.upper, .lower {
+    display: flex;
+    gap: 20px;
+}
+.back-biceps, .chest-triceps, .legs, .shoulder {
+    position: relative;
+    transition: .5s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0; 
+  transition: .5s ease; 
+  background-color: rgba(0, 0, 0, 0.5); 
+
+}
+.back-biceps:hover .overlay, .chest-triceps:hover .overlay, .legs:hover .overlay, .shoulder:hover .overlay {
+  opacity: 1; 
+}
+
+.back-biceps:hover .image, .chest-triceps:hover .image, .legs:hover .image, .shoulder:hover .image{
+  opacity: 0.6; 
+}
+
+.text {
+  color: aliceblue;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  text-align: center;
+}
+
+.image {
+  display: block;
+  transition: opacity 0.5s ease; 
+}
+
+.chest-triceps {
+
+}
+
+.legs {
+    
+}
+
+.shoulder-abs {
+
+}
+
+img {
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+}
