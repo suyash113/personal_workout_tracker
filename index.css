@@ -6,9 +6,20 @@ body {
 
 header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     color: aliceblue;
 }
+
+.header-1 {
+    display: flex;
+}
+.header-2 {
+    display: flex;
+    flex-direction: column;
+}
+
 #dumbell {
     width: 50px;
     height: 30px;
@@ -84,4 +95,136 @@ img {
     width: 300px;
     height: 200px;
     border-radius: 20px;
+}
+
+
+/* modal */
+
+.modal {
+    display: none; /*flex when displayed*/
+    position: fixed;
+    margin: 0 auto;
+    top: 80px;
+    left: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #2f3552;
+    border-radius: 5px;
+    width: 500px;
+    height: 400px;
+    background-color: #162438;
+}
+
+#modal-inner {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 400px;
+    justify-content: start;
+    align-items: start;
+    margin-top: 0;
+    margin-left: 50px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-right: auto;
+    /* margin-left: 50px; */
+    align-items: start;
+    /* justify-content: start; */
+    gap: 20px;
+}
+
+.modal-close-btn{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    background-color: transparent;
+    /* border: 2px solid #555; */
+    color: #555;
+    /* border-radius: 50%; */
+    padding: 2px 6px;
+    font-size: 14px;
+}
+
+.modal-close-btn:hover{
+    color: white;
+    background-color: #bd301d;
+    border: 2px solid #bd301d;
+}
+
+.entire-page {
+    text-align: center;
+    color: aliceblue;
+    margin: 0 auto;
+    width: 700px;
+}
+
+.all-exercises {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#add-exer {
+    border: 2px dotted #555;
+    border-radius: 20px;
+    margin: 20px auto;
+}
+
+#add-exer:hover {
+    background-color: #2f3552;
+    cursor: pointer;
+}
+
+.main-exercises {
+    position: relative;
+}
+
+#delete-exer-btn {
+    position: absolute;
+    top: 20px;
+    right: 4%;
+    background-color: transparent;
+    color: red;
+    padding: 2px 6px;
+    height: 20px;
+    width: 20px;
+}
+
+#delete-exer-btn:hover{
+    color: red;
+    background-color: hsl(7, 39%, 28%);
+    border: 2px solid #bd301d;
+    cursor: pointer;
+
+}
+
+#back-btn {
+    background-color: transparent;
+    color: red;
+    padding: 2px 6px;
+    height: 20px;
+    width: 20px;
+}
+
+#back-btn:hover{
+    color: red;
+    background-color: hsl(7, 39%, 28%);
+    border: 2px solid #bd301d;
+    cursor: pointer;
+}
+
+input {
+    padding: 10px 50px;
+    border-radius: 10px;
+}
+
+#submit {
+    padding: 10px 50px;
+    border-radius: 10px;
 }

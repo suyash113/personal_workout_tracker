@@ -6,12 +6,34 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1>BACK & BICEPS SESSION</h1>
-        <p>today</p>
-    </header>
-    <div class="main-exercise">
-        <h3>+Add exercise</h3>
+    <div class="entire-page">
+        <div class="all-exercises">
+            <div class="backHeading-date">
+                <h1>BACK & BICEPS SESSION</h1>
+                <p id="current-date"></p>
+            </div>
+            <i class="fa-sharp fa-solid fa-arrow-left" id="back-btn"></i>
+
+        </div>
+        <div class="main-exercise">
+
+            <i class="fa-regular fa-trash-can" id="delete-exer-btn"></i>
+        </div>
+        <h3 class="add-exer">+Add exercise</h3>
+        <div class="modal" id="modal">
+            <button class="modal-close-btn" id="modal-close-btn">X</button>
+            <div id="modal-inner">
+                    <h2>Add new exercise</h2>
+                    <p>Create a new exercise to track your progress</p>
+                    <div class="form">
+                        <label for="exercise-name">Exercise name</label>
+                        <input type="text" id="exercise-name" placeholder="Lat-pulldown" required>
+                        <label for="goal">Goal</label>
+                        <input type="text" id="goal" placeholder="e.g., 3-4 sets progressive overload">
+                        <button id="submit">Add Exercise</button>
+                    </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
