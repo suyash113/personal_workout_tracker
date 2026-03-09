@@ -28,12 +28,12 @@ function BackBiceps () {
                 <p id="current-date"></p>
             </div>
         </div>
-        <div class="main-exercise">
+        <div class="main-exercise" id="main-exercise">
 
         </div>
         <h3 id="add-exer">+Add exercise</h3>
         <div class="modal" id="modal">
-            <i class="fa-regular fa-trash-can" id="delete-exer-btn"></i>
+            <i class="fa-solid fa-x" id="delete-exer-btn"></i>
             <div id="modal-inner">
             
             </div>
@@ -49,7 +49,11 @@ function BackBiceps () {
 function newExercise () {
     const modal = document.getElementById('modal')
     let modalInner = document.getElementById('modal-inner')
-    modalInner.innerHTML = `
+    
+    if (window.getComputedStyle(modal).display === 'none'){
+        modal.style.display = 'flex'
+
+        modalInner.innerHTML = `
                 <h2>Add new exercise</h2>
                 <p>Create a new exercise to track your progress</p>
 
@@ -61,8 +65,18 @@ function newExercise () {
                     <button id="submit">Add Exercise</button>
                 </div>
                 `
-    
-    modal.style.display = 'flex'
+    }
 
-    
+    document.getElementById('delete-exer-btn').addEventListener("click", function() {
+        modal.style.display = 'none'
+    })
+
+    document.getElementById('submit').addEventListener('click', addMainExer)
+
+}
+
+function addMainExer() {
+    let mainExer = document.getElementById('main-exercise') 
+    mainExer.innerHTML += `<div>
+    </div>` 
 }
