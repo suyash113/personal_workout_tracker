@@ -228,3 +228,19 @@ input {
     padding: 10px 50px;
     border-radius: 10px;
 }
+
+.modal2inner{
+    display: none;
+}
+
+.weight-reps {
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: column; */
+}
+
+.display-weight-rep {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}

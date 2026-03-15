@@ -25,7 +25,7 @@ function BackBiceps () {
             <i class="fa-sharp fa-solid fa-arrow-left" id="back-btn"></i>
             <div class="backHeading-date">
                 <h1>BACK & BICEPS SESSION</h1>
-                <p id="current-date"></p>
+                <p>${dateDisplay.innerText}</p>
             </div>
         </div>
         <div class="main-exercise" id="main-exercise">
@@ -62,7 +62,7 @@ function newExercise () {
                     <input type="text" id="exercise-name" placeholder="Lat-pulldown" required>
                     <label for="goal">Goal</label>
                     <input type="text" id="goal" placeholder="e.g., 3-4 sets progressive overload">
-                    <button id="submit">Add Exercise</button>
+                    <button id="submit">+ Add Exercise</button>
                 </div>
                 `
     }
@@ -77,6 +77,64 @@ function newExercise () {
 
 function addMainExer() {
     let mainExer = document.getElementById('main-exercise') 
-    mainExer.innerHTML += `<div>
-    </div>` 
+    const exerciseName = document.getElementById('exercise-name')
+        
+    if(window.getComputedStyle(modal).display === 'flex' && exerciseName.value) {
+        modal.style.display = 'none'
+        mainExer.innerHTML += `<div>
+            <h1>${exerciseName.value}</h1>
+            <div class='exercise-name-main' id='exercise-name-main'></div>
+            <div class='modal2inner' id='modal2inner'>
+            </div>
+            <button id='add-set'>+ Add set</button>
+        </div>` 
+    }
+    document.getElementById('add-set').addEventListener("click", addSet)
+}
+
+function addSet() {
+    const modal2inner = document.getElementById('modal2inner')
+    if (window.getComputedStyle(modal2inner).display === 'none'){
+        modal2inner.style.display = 'flex'
+        modal2inner.innerHTML = ` <div>
+                    <div class='form'>
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" id="weight" placeholder="60" required>
+                        <label for="reps">Reps</label>
+                        <input type="number" id="reps" placeholder="6">
+                    </div>
+                    <div>
+                        <button id="add-set-submit" class='add-set-submit'>+ Add Set</button>
+                        <button id="cancel">Cancel</button>
+                    </div>
+                </div>`
+        const weight = document.getElementById('weight')
+        const reps = document.getElementById('reps')
+        
+    }
+
+    document.getElementById('add-set-submit').addEventListener('click', addSetSubmit)
+
+    document.getElementById('cancel').addEventListener('click', function() {
+        modal2inner.style.display = 'none'
+    })
+}
+
+function addSetSubmit() {
+    let exerciseNameMain = document.getElementById('exercise-name-main')
+    if(window.getComputedStyle(modal2inner).display === 'flex' && weight.value && reps.value){
+        modal2inner.style.display = 'none'
+        exerciseNameMain.innerHTML += `<div class='weight-reps'>
+            <div class='display-weight-rep'>
+                <p>set1</p>
+                <h3>${weight.value}X${reps.value}</h3>
+            </div>
+            <div class='display-weight-rep'>
+                <p>kg</p>
+                <p>${weight.value}</p>
+                <p>reps</p>
+                <p>${reps.value}</p>
+            </div>
+        </div>`
+    }
 }
