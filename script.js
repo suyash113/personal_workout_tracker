@@ -17,9 +17,11 @@ const today = new Date().toLocaleDateString('en-US', {
 // Inject it
 dateDisplay.innerText = today;
 
-backBiceps.addEventListener("click", BackBiceps )
+backBiceps.addEventListener("click", function() {
+    BackBiceps()
+} )
 
-function BackBiceps () {
+function BackBiceps() {
     workoutStage.innerHTML = `<div class="entire-page">
         <div class="all-exercises">
             <i class="fa-sharp fa-solid fa-arrow-left" id="back-btn"></i>
@@ -46,7 +48,7 @@ function BackBiceps () {
 }
 
 
-function newExercise () {
+function newExercise() {
     const modal = document.getElementById('modal')
     let modalInner = document.getElementById('modal-inner')
     
@@ -54,15 +56,16 @@ function newExercise () {
         modal.style.display = 'flex'
 
         modalInner.innerHTML = `
-                <h2>Add new exercise</h2>
-                <p>Create a new exercise to track your progress</p>
-
-                <div class='form'>
-                    <label for="exercise-name">Exercise name</label>
-                    <input type="text" id="exercise-name" placeholder="Lat-pulldown" required>
-                    <label for="goal">Goal</label>
-                    <input type="text" id="goal" placeholder="e.g., 3-4 sets progressive overload">
-                    <button id="submit">+ Add Exercise</button>
+                <div>
+                    <h2>Add new exercise</h2>
+                    <p>Create a new exercise to track your progress</p>
+                    <div class='form'>
+                        <label for="exercise-name">Exercise name</label>
+                        <input type="text" id="exercise-name" placeholder="Lat-pulldown" required>
+                        <label for="goal">Goal</label>
+                        <input type="text" id="goal" placeholder="e.g., 3-4 sets progressive overload">
+                        <button id="submit">+ Add Exercise</button>
+                    </div>
                 </div>
                 `
     }
@@ -71,7 +74,9 @@ function newExercise () {
         modal.style.display = 'none'
     })
 
-    document.getElementById('submit').addEventListener('click', addMainExer)
+    document.getElementById('submit').addEventListener('click', function() {
+        addMainExer()
+    })
 
 }
 
@@ -81,7 +86,7 @@ function addMainExer() {
         
     if(window.getComputedStyle(modal).display === 'flex' && exerciseName.value) {
         modal.style.display = 'none'
-        mainExer.innerHTML += `<div>
+        mainExer.innerHTML += `<div div class='exercise-card' data-id='123'>
             <h1>${exerciseName.value}</h1>
             <div class='exercise-name-main' id='exercise-name-main'></div>
             <div class='modal2inner' id='modal2inner'>
@@ -89,14 +94,16 @@ function addMainExer() {
             <button id='add-set'>+ Add set</button>
         </div>` 
     }
-    document.getElementById('add-set').addEventListener("click", addSet)
+    document.getElementById('add-set').addEventListener("click", function() {
+        addSet()
+    })
 }
 
 function addSet() {
     const modal2inner = document.getElementById('modal2inner')
     if (window.getComputedStyle(modal2inner).display === 'none'){
         modal2inner.style.display = 'flex'
-        modal2inner.innerHTML = ` <div>
+        modal2inner.innerHTML = ` <div class='modal2' data-id='124'>
                     <div class='form'>
                         <label for="weight">Weight (kg)</label>
                         <input type="number" id="weight" placeholder="60" required>
@@ -113,7 +120,9 @@ function addSet() {
         
     }
 
-    document.getElementById('add-set-submit').addEventListener('click', addSetSubmit)
+    document.getElementById('add-set-submit').addEventListener('click', function() {
+        addSetSubmit()
+    })
 
     document.getElementById('cancel').addEventListener('click', function() {
         modal2inner.style.display = 'none'
